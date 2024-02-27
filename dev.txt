@@ -1,0 +1,3 @@
+Создать миграцию:
+    cd migrations/
+    goose create название_миграции диалект   ->    goose create create_users_table sql
