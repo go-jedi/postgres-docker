@@ -1,12 +1,11 @@
 -- +goose Up
-create table note (
-    id serial primary key,
-    title text not null,
-    body text not null,
-    created_at timestamp not null default now(),
-    updated_at timestamp
+CREATE TABLE note (
+    id SERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    body TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP
 );
 
 -- +goose Down
-drop table note;
-
+DROP TABLE note;
