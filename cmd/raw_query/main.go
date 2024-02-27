@@ -22,7 +22,12 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to connect to database: %v", err)
 	}
-	defer con.Close(ctx)
+	defer func(con *pgx.Conn, ctx context.Context) {
+		err = con.Close(ctx)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}(con, ctx)
 
 	// Делаем запрос на вставку записи в таблицу note
 	res, err := con.Exec(ctx, "INSERT INTO note (title, body) VALUES ($1, $2)", gofakeit.City(), gofakeit.Address().Street)

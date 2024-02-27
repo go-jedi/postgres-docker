@@ -7,6 +7,7 @@ import (
 	"time"
 
 	sq "github.com/Masterminds/squirrel"
+
 	"github.com/brianvoe/gofakeit"
 	"github.com/jackc/pgx/v4/pgxpool"
 )
